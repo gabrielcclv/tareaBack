@@ -1,16 +1,8 @@
 <?php
-
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class Rol extends Model
+class Profile extends Model
 {
-protected $fillable = [
-    'id',
-    'nombre',
-    ];
-
-    public function usuarios()
-    {
-        return $this->belongsTo(Usuario::class, 'rol');
-    }
+    protected $fillable = ['user_id', 'phone', 'address'];
 }
