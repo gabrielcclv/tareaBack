@@ -46,21 +46,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function books()
-    {
-        return $this->belongsToMany(Book::class)
-        ->as('reservas')
-        ->withPivot(['reserved_at', 'returned_at']);
-    }
-
-    public function reservasActivas() {
-        return $this->books()->wherePivotNull('returned_at');
-    }
-
-    public function reservasDevueltas() {
-        return $this->books()->wherePivotNotNull('returned_at');
-    }
-
     // Relación 1:1 entre usuario y perfil
     public function profile()
     {
